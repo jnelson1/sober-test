@@ -17,8 +17,20 @@ class ViewController: UIViewController {
     var result: Bool?
     var isStartButton = true
     var isCalibration = false
+    let controlObject = Control()
+
     
     @IBAction func startstopTest(_ sender: Any) {
+        if controlObject.controlAcc==0.0
+        {
+            let alert = UIAlertController(title: "You must first provide a sober baseline", message: "press 'calibrate' and then continue with test", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+                // perhaps use action.title here
+                
+            })
+            self.present(alert, animated: true)
+        }
+        else{
         if isStartButton{
             startDeviceMotion()
             isStartButton = false
@@ -26,10 +38,17 @@ class ViewController: UIViewController {
         else{
             self.motion.stopAccelerometerUpdates()
             if isCalibration{
-                let controlObject = Control()
                 controlObject.controlAcc = magAvg!
             }
             isStartButton=true
+            if isCalibration{
+            performSegue(withIdentifier: "navToCalibration", sender: Any?.self)
+                isCalibration = false
+            }
+            else{
+            performSegue(withIdentifier: "BalanceTestToResults", sender: Any?.self)
+            }
+        }
         }
     }
     
@@ -99,7 +118,7 @@ class ViewController: UIViewController {
     }
     
     func isSober() -> Bool{
-        if magAvg! > Double(5.0){
+        if (magAvg!-controlObject.controlAcc) > Double(5.0){
             result = false
         }
         else {
@@ -109,8 +128,11 @@ class ViewController: UIViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "BalanceTestToResults"{
+            let balanceResultsVC: BalanceResultsViewController=segue.destination as!BalanceResultsViewController
+            balanceResultsVC.result=isSober()
     }
 
 
+}
 }

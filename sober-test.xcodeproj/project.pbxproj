@@ -14,6 +14,7 @@
 		B68C232D1EEF1E2300FDB3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68C232C1EEF1E2300FDB3A2 /* Assets.xcassets */; };
 		B68C23301EEF1E2300FDB3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68C232E1EEF1E2300FDB3A2 /* LaunchScreen.storyboard */; };
 		B68C23381EEF279900FDB3A2 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C23371EEF279900FDB3A2 /* Control.swift */; };
+		B68C233A1EEFFED300FDB3A2 /* BalanceResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C23391EEFFED300FDB3A2 /* BalanceResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B68C232F1EEF1E2300FDB3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B68C23311EEF1E2300FDB3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B68C23371EEF279900FDB3A2 /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		B68C23391EEFFED300FDB3A2 /* BalanceResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				B68C23271EEF1E2300FDB3A2 /* ViewController.swift */,
 				B68C23371EEF279900FDB3A2 /* Control.swift */,
 				B68C23291EEF1E2300FDB3A2 /* Main.storyboard */,
+				B68C23391EEFFED300FDB3A2 /* BalanceResultsViewController.swift */,
 				B68C232C1EEF1E2300FDB3A2 /* Assets.xcassets */,
 				B68C232E1EEF1E2300FDB3A2 /* LaunchScreen.storyboard */,
 				B68C23311EEF1E2300FDB3A2 /* Info.plist */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68C233A1EEFFED300FDB3A2 /* BalanceResultsViewController.swift in Sources */,
 				B68C23281EEF1E2300FDB3A2 /* ViewController.swift in Sources */,
 				B68C23261EEF1E2300FDB3A2 /* AppDelegate.swift in Sources */,
 				B68C23381EEF279900FDB3A2 /* Control.swift in Sources */,

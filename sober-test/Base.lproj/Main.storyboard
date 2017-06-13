@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg7-Ej-gyG">
                                 <rect key="frame" x="261" y="72" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calibration"/>
+                                <state key="normal" title="Calibrate"/>
                                 <connections>
                                     <action selector="Calibration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6g3-rf-5zT"/>
                                 </connections>
@@ -37,14 +37,53 @@
                                     <action selector="startstopTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kbz-9K-OgN"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="hold phone to chest, close your eyes and direct your face towards the ceiling.  Try to be as still as possible" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="anC-8G-BdP">
+                                <rect key="frame" x="66" y="397" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Balance Test" id="pGo-2z-2se"/>
+                    <connections>
+                        <segue destination="BZf-bC-Iud" kind="show" identifier="BalanceTestToResults" id="rvj-yR-Xah"/>
+                        <segue destination="tdi-i7-e2M" kind="presentation" identifier="navToCalibration" id="ea2-WM-o3q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="137"/>
+            <point key="canvasLocation" x="-172" y="136.28185907046478"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="awl-Ck-UkB">
+            <objects>
+                <viewController id="tdi-i7-e2M" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LRN-uq-xmg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uky-86-vzz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qSR-Cq-OcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calibration Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q5-zL-FSB">
+                                <rect key="frame" x="107" y="247" width="161" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="3SG-FU-C7E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPx-uK-Lm3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.600000000000001" y="-654.42278860569718"/>
         </scene>
         <!--Steady Hands Test-->
         <scene sceneID="1Gc-eX-iTo">
@@ -59,19 +98,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOB-pL-HbM">
-                                <rect key="frame" x="299" y="72" width="74" height="30"/>
+                                <rect key="frame" x="305" y="72" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calibration"/>
+                                <state key="normal" title="Calibrate"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-gT-YEh">
                                 <rect key="frame" x="152" y="318" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start/Stop"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="hold your phone horizontal and try to keep it as flat as possible" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-uG-PV9">
+                                <rect key="frame" x="87" y="385" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Steady Hands Test" id="WfO-6q-KU2"/>
+                    <connections>
+                        <segue destination="9mp-T5-Svg" kind="show" identifier="SteadyHandsTestToResults" id="wL6-Qg-gJR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAi-BJ-PqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="734" y="880"/>
         </scene>
-        <!--View Controller-->
+        <!--Balance Results View Controller-->
         <scene sceneID="wwA-a6-VR8">
             <objects>
-                <viewController id="BZf-bC-Iud" sceneMemberID="viewController">
+                <viewController id="BZf-bC-Iud" customClass="BalanceResultsViewController" customModule="sober_test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="61C-Sn-7zy"/>
                         <viewControllerLayoutGuide type="bottom" id="Pj3-Qv-XZN"/>
@@ -141,6 +190,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="resultsImageView" destination="QQs-f9-7ne" id="eWx-AM-rjc"/>
+                        <outlet property="resultsLabelTextField" destination="3yO-48-xsQ" id="b88-tj-Dip"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eH-ws-rl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
