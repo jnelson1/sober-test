@@ -9,8 +9,18 @@
 import Foundation
 import Realm
 
+private var _sharedSingletonInstance: Control!
+
 class Control: RLMObject {
-    dynamic var controlAcc = 0.0
-    dynamic var controlGyro = 0.0
+        dynamic var controlAcc = 0.0
+        dynamic var controlGyro = 0.0
+
+    class var shared: Control {
+        if _sharedSingletonInstance == nil {
+            _sharedSingletonInstance = Control()
+        }
+        return _sharedSingletonInstance
+    }
+
     
 }

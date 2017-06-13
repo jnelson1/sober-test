@@ -7,5 +7,8 @@ target 'sober-test' do
 
   # Pods for sober-test
    pod ‘RealmSwift’
-
+   pod 'FacebookCore'
+   pod 'FacebookLogin'
+   pod 'Firebase/Core'
+   pod 'Firebase/Auth'
 end

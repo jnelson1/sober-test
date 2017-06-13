@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var result: Bool?
     var isStartButton = true
     var isCalibration = false
-    let controlObject = Control()
+    let controlObject = Control.shared
 
     
     @IBAction func startstopTest(_ sender: Any) {
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         if isStartButton{
             startDeviceMotion()
             isStartButton = false
+            (sender as AnyObject).setImage!(UIImage(named: "pause-button.png")!, for: [])
+
         }
         else{
             self.motion.stopAccelerometerUpdates()
