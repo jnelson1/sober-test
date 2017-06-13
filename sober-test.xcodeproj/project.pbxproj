@@ -13,7 +13,7 @@
 		B68C232B1EEF1E2300FDB3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68C23291EEF1E2300FDB3A2 /* Main.storyboard */; };
 		B68C232D1EEF1E2300FDB3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B68C232C1EEF1E2300FDB3A2 /* Assets.xcassets */; };
 		B68C23301EEF1E2300FDB3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68C232E1EEF1E2300FDB3A2 /* LaunchScreen.storyboard */; };
-		B68C23381EEF279900FDB3A2 /* ControlMag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C23371EEF279900FDB3A2 /* ControlMag.swift */; };
+		B68C23381EEF279900FDB3A2 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C23371EEF279900FDB3A2 /* Control.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		B68C232C1EEF1E2300FDB3A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B68C232F1EEF1E2300FDB3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B68C23311EEF1E2300FDB3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B68C23371EEF279900FDB3A2 /* ControlMag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlMag.swift; sourceTree = "<group>"; };
+		B68C23371EEF279900FDB3A2 /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			children = (
 				B68C23251EEF1E2300FDB3A2 /* AppDelegate.swift */,
 				B68C23271EEF1E2300FDB3A2 /* ViewController.swift */,
-				B68C23371EEF279900FDB3A2 /* ControlMag.swift */,
+				B68C23371EEF279900FDB3A2 /* Control.swift */,
 				B68C23291EEF1E2300FDB3A2 /* Main.storyboard */,
 				B68C232C1EEF1E2300FDB3A2 /* Assets.xcassets */,
 				B68C232E1EEF1E2300FDB3A2 /* LaunchScreen.storyboard */,
@@ -217,7 +217,7 @@
 			files = (
 				B68C23281EEF1E2300FDB3A2 /* ViewController.swift in Sources */,
 				B68C23261EEF1E2300FDB3A2 /* AppDelegate.swift in Sources */,
-				B68C23381EEF279900FDB3A2 /* ControlMag.swift in Sources */,
+				B68C23381EEF279900FDB3A2 /* Control.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +385,7 @@
 				B68C23361EEF1E2300FDB3A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,7 +9,8 @@
 import Foundation
 import Realm
 
-class ControlMag: RLMObject {
-    dynamic var controlMag
+class Control: RLMObject {
+    dynamic var controlAcc = 0.0
+    dynamic var controlGyro = 0.0
     
 }

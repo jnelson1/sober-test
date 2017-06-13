@@ -15,14 +15,27 @@ class ViewController: UIViewController {
     var magnitudes: [Double] = []
     var magAvg: Double?
     var result: Bool?
+    var isStartButton = true
+    var isCalibration = false
     
-    @IBAction func startTest(_ sender: Any) {
-        startDeviceMotion()
-    }
-    @IBAction func stopTest(_ sender: Any) {
-        self.motion.stopAccelerometerUpdates()
+    @IBAction func startstopTest(_ sender: Any) {
+        if isStartButton{
+            startDeviceMotion()
+            isStartButton = false
+        }
+        else{
+            self.motion.stopAccelerometerUpdates()
+            if isCalibration{
+                let controlObject = Control()
+                controlObject.controlAcc = magAvg!
+            }
+            isStartButton=true
+        }
     }
     
+    @IBAction func Calibration(_ sender: Any) {
+        isCalibration = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -54,9 +67,9 @@ class ViewController: UIViewController {
                         
                         // Use the accelerometer data in your app.
                         
-                        let magnitude = sqrt((x^^2)+(y^^2)+(z^^2))
+                        let magnitude = sqrt(pow(x,2)+pow(y,2)+pow(z,2))
                         self.magnitudes.append(magnitude)
-                        magAvg = average(magnitudes: magnitudes)
+                        self.magAvg = self.average(magnitudes: self.magnitudes)
                         
                         print ("x: /(x) y: /(y) z: /(z) average: /(magAvg)")
                         
@@ -86,16 +99,16 @@ class ViewController: UIViewController {
     }
     
     func isSober() -> Bool{
-        if magAvg>5{
+        if magAvg! > Double(5.0){
             result = false
         }
         else {
             result = true
         }
-        return result
+        return result!
         
     }
-    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
 
