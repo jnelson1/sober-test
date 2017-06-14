@@ -17,6 +17,7 @@
 		B68C233A1EEFFED300FDB3A2 /* BalanceResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C23391EEFFED300FDB3A2 /* BalanceResultsViewController.swift */; };
 		B68C233C1EF01FEB00FDB3A2 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C233B1EF01FEB00FDB3A2 /* LogInViewController.swift */; };
 		B68C233E1EF029BB00FDB3A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B68C233D1EF029BB00FDB3A2 /* GoogleService-Info.plist */; };
+		B68C23401EF14DE900FDB3A2 /* CalibrationCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C233F1EF14DE900FDB3A2 /* CalibrationCompleteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B68C23391EEFFED300FDB3A2 /* BalanceResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceResultsViewController.swift; sourceTree = "<group>"; };
 		B68C233B1EF01FEB00FDB3A2 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B68C233D1EF029BB00FDB3A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B68C233F1EF14DE900FDB3A2 /* CalibrationCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationCompleteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				B68C23271EEF1E2300FDB3A2 /* ViewController.swift */,
 				B68C23371EEF279900FDB3A2 /* Control.swift */,
 				B68C23291EEF1E2300FDB3A2 /* Main.storyboard */,
+				B68C233F1EF14DE900FDB3A2 /* CalibrationCompleteViewController.swift */,
 				B68C233B1EF01FEB00FDB3A2 /* LogInViewController.swift */,
 				B68C23391EEFFED300FDB3A2 /* BalanceResultsViewController.swift */,
 				B68C232C1EEF1E2300FDB3A2 /* Assets.xcassets */,
@@ -229,6 +232,7 @@
 				B68C23281EEF1E2300FDB3A2 /* ViewController.swift in Sources */,
 				B68C23261EEF1E2300FDB3A2 /* AppDelegate.swift in Sources */,
 				B68C233C1EF01FEB00FDB3A2 /* LogInViewController.swift in Sources */,
+				B68C23401EF14DE900FDB3A2 /* CalibrationCompleteViewController.swift in Sources */,
 				B68C23381EEF279900FDB3A2 /* Control.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

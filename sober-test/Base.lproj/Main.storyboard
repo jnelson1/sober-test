@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZQm-2d-RJC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UsA-aA-jtw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,15 +33,6 @@
                                     <action selector="Calibration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6g3-rf-5zT"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hold phone to chest, close your eyes and direct your face towards the ceiling.  Try to be as still as possible" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="anC-8G-BdP">
-                                <rect key="frame" x="66" y="397" width="243" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="wfW-O6-Oms"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw4-hF-Qce">
                                 <rect key="frame" x="152.5" y="267" width="70" height="70"/>
                                 <constraints>
@@ -53,20 +44,30 @@
                                     <action selector="startstopTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kbz-9K-OgN"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hold phone to chest, close your eyes and direct your face towards the ceiling.  Try to be as still as possible" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="anC-8G-BdP">
+                                <rect key="frame" x="65" y="375" width="245" height="95"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="wfW-O6-Oms"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bw4-hF-Qce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="203" id="45S-gU-3V2"/>
                             <constraint firstItem="bw4-hF-Qce" firstAttribute="centerX" secondItem="anC-8G-BdP" secondAttribute="centerX" id="Aww-5K-xL3"/>
-                            <constraint firstItem="anC-8G-BdP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="Dcl-yx-PHb"/>
+                            <constraint firstItem="anC-8G-BdP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="49" id="Dcl-yx-PHb"/>
                             <constraint firstItem="Eg7-Ej-gyG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JRJ-bB-92O"/>
                             <constraint firstItem="anC-8G-BdP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wf7-QO-zTO"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="anC-8G-BdP" secondAttribute="bottom" constant="93" id="c4f-MX-T8f"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="anC-8G-BdP" secondAttribute="bottom" constant="148" id="c4f-MX-T8f"/>
                             <constraint firstItem="Eg7-Ej-gyG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="xEV-Sq-dwf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Balance Test" id="pGo-2z-2se"/>
                     <connections>
+                        <outlet property="calibrateButton" destination="Eg7-Ej-gyG" id="Anv-Ho-t3h"/>
                         <segue destination="BZf-bC-Iud" kind="show" identifier="BalanceTestToResults" id="rvj-yR-Xah"/>
                         <segue destination="tdi-i7-e2M" kind="presentation" identifier="navToCalibration" id="ea2-WM-o3q"/>
                     </connections>
@@ -78,7 +79,7 @@
         <!--Title-->
         <scene sceneID="awl-Ck-UkB">
             <objects>
-                <viewController id="tdi-i7-e2M" sceneMemberID="viewController">
+                <viewController id="tdi-i7-e2M" customClass="CalibrationCompleteViewController" customModule="sober_test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LRN-uq-xmg"/>
                         <viewControllerLayoutGuide type="bottom" id="Uky-86-vzz"/>
@@ -87,17 +88,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calibration Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q5-zL-FSB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calibration Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q5-zL-FSB">
                                 <rect key="frame" x="107" y="247" width="161" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UX-eE-dTq">
+                                <rect key="frame" x="172" y="318" width="30" height="30"/>
+                                <state key="normal" title="Ok"/>
+                                <connections>
+                                    <action selector="ok:" destination="tdi-i7-e2M" eventType="touchUpInside" id="7Pr-cf-9Ud"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2UX-eE-dTq" firstAttribute="centerX" secondItem="2Q5-zL-FSB" secondAttribute="centerX" id="0Fi-t6-ROZ"/>
+                            <constraint firstItem="2UX-eE-dTq" firstAttribute="top" secondItem="2Q5-zL-FSB" secondAttribute="bottom" constant="50" id="Xjl-Kz-f8p"/>
+                            <constraint firstItem="2UX-eE-dTq" firstAttribute="centerX" secondItem="qSR-Cq-OcZ" secondAttribute="centerX" id="h2y-DF-8kW"/>
+                            <constraint firstItem="2UX-eE-dTq" firstAttribute="centerY" secondItem="qSR-Cq-OcZ" secondAttribute="centerY" id="heS-Oe-b3Q"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="3SG-FU-C7E"/>
+                    <navigationItem key="navigationItem" title="Title" id="rkZ-Dc-ISN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPx-uK-Lm3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,11 +275,11 @@
             </objects>
             <point key="canvasLocation" x="-2310" y="453"/>
         </scene>
-        <!--Item-->
+        <!--Balancing Test-->
         <scene sceneID="75A-nY-Ivd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4hU-5l-prf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RXc-cb-XyP"/>
+                    <tabBarItem key="tabBarItem" title="Balancing Test" selectedImage="balancing-scale-variant (1)" id="RXc-cb-XyP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r9D-c4-S4M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -281,11 +294,11 @@
             </objects>
             <point key="canvasLocation" x="-1268" y="137"/>
         </scene>
-        <!--Item 2-->
+        <!--Steady Hands Test-->
         <scene sceneID="Ujr-hU-3Fg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S8o-MI-3QR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Afy-vM-lo4"/>
+                    <tabBarItem key="tabBarItem" title="Steady Hands Test" selectedImage="hold" id="Afy-vM-lo4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qtA-dA-cf0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -302,6 +315,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="balancing-scale-variant (1)" width="32" height="32"/>
+        <image name="hold" width="32" height="32"/>
         <image name="play-button" width="128" height="128"/>
     </resources>
 </document>

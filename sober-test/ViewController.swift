@@ -19,9 +19,10 @@ class ViewController: UIViewController {
     var isCalibration = false
     let controlObject = Control.shared
 
+    @IBOutlet weak var calibrateButton: UIButton!
     
     @IBAction func startstopTest(_ sender: Any) {
-        if controlObject.controlAcc==0.0
+        if controlObject.controlAcc==0.0 && isCalibration==false
         {
             let alert = UIAlertController(title: "You must first provide a sober baseline", message: "press 'calibrate' and then continue with test", preferredStyle: .actionSheet)
             alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
@@ -32,13 +33,14 @@ class ViewController: UIViewController {
         }
         else{
         if isStartButton{
-            startDeviceMotion()
+            self.startAccelerometers()
             isStartButton = false
             (sender as AnyObject).setImage!(UIImage(named: "pause-button.png")!, for: [])
 
         }
         else{
-            self.motion.stopAccelerometerUpdates()
+            //self.motion.stopAccelerometerUpdates()
+            self.motion.stopDeviceMotionUpdates()
             if isCalibration{
                 controlObject.controlAcc = magAvg!
             }
@@ -46,9 +48,14 @@ class ViewController: UIViewController {
             if isCalibration{
             performSegue(withIdentifier: "navToCalibration", sender: Any?.self)
                 isCalibration = false
+                self.calibrateButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+                (sender as AnyObject).setImage!(UIImage(named: "play-button.png")!, for: [])
+
+                
             }
             else{
             performSegue(withIdentifier: "BalanceTestToResults", sender: Any?.self)
+                (sender as AnyObject).setImage!(UIImage(named: "play-button.png")!, for: [])
             }
         }
         }
@@ -56,6 +63,8 @@ class ViewController: UIViewController {
     
     @IBAction func Calibration(_ sender: Any) {
         isCalibration = true
+        let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+        self.calibrateButton.backgroundColor=color
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,31 +78,39 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func startDeviceMotion() {
-        let motion = CMMotionManager()
         
-        func startAccelerometers() {
+    func startAccelerometers() {
             // Make sure the accelerometer hardware is available.
             if self.motion.isAccelerometerAvailable {
                 self.motion.accelerometerUpdateInterval = 1.0 / 2.0  // 60 Hz
-                self.motion.startAccelerometerUpdates()
+                //self.motion.startAccelerometerUpdates()
                 
                 // Configure a timer to fetch the data.
                 self.timer = Timer(fire: Date(), interval: (1.0/2.0), repeats: true, block: { (timer) in
                     // Get the accelerometer data.
+                    /*
                     if let data = self.motion.accelerometerData {
                         let x = data.acceleration.x
                         let y = data.acceleration.y
                         let z = data.acceleration.z
-                        
+ */
+                 self.motion.startDeviceMotionUpdates(to: .main) {
+                    [weak self] (data: CMDeviceMotion?, error: Error?) in
+                        if let acc = data?.userAcceleration{
+                            let x = acc.x
+                            let y = acc.y
+                            let z = acc.z
+                    
+
                         // Use the accelerometer data in your app.
                         
                         let magnitude = sqrt(pow(x,2)+pow(y,2)+pow(z,2))
-                        self.magnitudes.append(magnitude)
-                        self.magAvg = self.average(magnitudes: self.magnitudes)
+                        self?.magnitudes.append(magnitude)
+                        self?.magAvg = self?.average(magnitudes: (self?.magnitudes)!)
                         
-                        print ("x: /(x) y: /(y) z: /(z) average: /(magAvg)")
+                        print ("x: \(x) y: \(y) z: \(z) average: \(self?.magAvg) calVal = \(self?.controlObject.controlAcc)")
                         
+                        }
                     }
                 })
                 
@@ -104,7 +121,7 @@ class ViewController: UIViewController {
 
 
 
-}
+
     func average(magnitudes: [Double]) -> Double {
         
         var total = 0.0
@@ -120,7 +137,7 @@ class ViewController: UIViewController {
     }
     
     func isSober() -> Bool{
-        if (magAvg!-controlObject.controlAcc) > Double(5.0){
+        if (magAvg!-controlObject.controlAcc) > Double(0.5){
             result = false
         }
         else {
