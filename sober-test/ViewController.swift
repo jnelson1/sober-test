@@ -21,6 +21,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var calibrateButton: UIButton!
     
+    @IBOutlet weak var soberScore: UILabel!
+    
     @IBAction func startstopTest(_ sender: Any) {
         if controlObject.controlAcc==0.0 && isCalibration==false
         {
@@ -33,13 +35,14 @@ class ViewController: UIViewController {
         }
         else{
         if isStartButton{
+            magnitudes=[]
             self.startAccelerometers()
             isStartButton = false
             (sender as AnyObject).setImage!(UIImage(named: "pause-button.png")!, for: [])
 
         }
         else{
-            //self.motion.stopAccelerometerUpdates()
+            self.motion.stopAccelerometerUpdates()
             self.motion.stopDeviceMotionUpdates()
             if isCalibration{
                 controlObject.controlAcc = magAvg!
@@ -107,7 +110,23 @@ class ViewController: UIViewController {
                         let magnitude = sqrt(pow(x,2)+pow(y,2)+pow(z,2))
                         self?.magnitudes.append(magnitude)
                         self?.magAvg = self?.average(magnitudes: (self?.magnitudes)!)
-                        
+                            /*var redColor = UIColor()
+                              var greenColor = UIColor()
+                             if (magAvg!-controlObject.controlAcc) > Double(0.01){
+                                    redColor = 1.0
+                                    greenColor = 0.0
+                             }
+                             else{
+                             if (magAvg!-controlObject.controlAcc)<0.0{
+                                redColor = 0.0
+                             greenColor = 1.0
+                             }
+                             redColor = 100.0*(magAvg!-controlObject.controlAcc)
+                             greenColor = 1.0-100.0*(magAvg!-controlObject.controlAcc)
+                             }
+                            self.soberScore.backgroundColor = UIColor((red: redColor, green: greenColor, blue: 0, alpha: 1)
+                            self.soberScore.text = "Sober Score = \(1000*(magAvg!-controlObject.controlAcc)) out of 10"
+                            */
                         print ("x: \(x) y: \(y) z: \(z) average: \(self?.magAvg) calVal = \(self?.controlObject.controlAcc)")
                         
                         }
@@ -137,7 +156,7 @@ class ViewController: UIViewController {
     }
     
     func isSober() -> Bool{
-        if (magAvg!-controlObject.controlAcc) > Double(0.5){
+        if (magAvg!-controlObject.controlAcc) > Double(0.01){
             result = false
         }
         else {

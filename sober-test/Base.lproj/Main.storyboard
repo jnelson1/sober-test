@@ -53,6 +53,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-1l-ETD">
+                                <rect key="frame" x="109" y="478" width="156" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -68,6 +75,7 @@
                     <navigationItem key="navigationItem" title="Balance Test" id="pGo-2z-2se"/>
                     <connections>
                         <outlet property="calibrateButton" destination="Eg7-Ej-gyG" id="Anv-Ho-t3h"/>
+                        <outlet property="soberScore" destination="fD6-1l-ETD" id="JAL-RJ-5wv"/>
                         <segue destination="BZf-bC-Iud" kind="show" identifier="BalanceTestToResults" id="rvj-yR-Xah"/>
                         <segue destination="tdi-i7-e2M" kind="presentation" identifier="navToCalibration" id="ea2-WM-o3q"/>
                     </connections>
@@ -119,7 +127,7 @@
         <!--Steady Hands Test-->
         <scene sceneID="1Gc-eX-iTo">
             <objects>
-                <viewController id="YVv-Mg-ZJ4" sceneMemberID="viewController">
+                <viewController id="YVv-Mg-ZJ4" customClass="SHViewController" customModule="sober_test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7LY-E6-lfv"/>
                         <viewControllerLayoutGuide type="bottom" id="B4n-v9-e9n"/>
@@ -128,15 +136,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-gT-YEh">
-                                <rect key="frame" x="152" y="267" width="71" height="30"/>
-                                <state key="normal" title="Start/Stop"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Nk-gT-YEh">
+                                <rect key="frame" x="152.5" y="267" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Nk-gT-YEh" secondAttribute="height" multiplier="1:1" id="ORq-tq-5Lf"/>
+                                    <constraint firstAttribute="height" constant="70" id="phm-MO-gyG"/>
+                                </constraints>
+                                <state key="normal" title="Start/Stop" image="play-button"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hold your phone horizontal and try to keep it as flat as possible" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-uG-PV9">
-                                <rect key="frame" x="87" y="397" width="201" height="128"/>
+                                <rect key="frame" x="87" y="375" width="201" height="95"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="GcT-hA-1LL"/>
+                                    <constraint firstAttribute="height" constant="95" id="GcT-hA-1LL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -153,7 +165,7 @@
                             <constraint firstItem="Crd-uG-PV9" firstAttribute="leading" secondItem="VFr-h4-MLg" secondAttribute="leadingMargin" constant="71" id="5zZ-Ly-1KH"/>
                             <constraint firstItem="Crd-uG-PV9" firstAttribute="centerX" secondItem="VFr-h4-MLg" secondAttribute="centerX" id="6Ni-YT-tMA"/>
                             <constraint firstItem="oOB-pL-HbM" firstAttribute="trailing" secondItem="VFr-h4-MLg" secondAttribute="trailingMargin" id="GKt-H5-zvu"/>
-                            <constraint firstItem="B4n-v9-e9n" firstAttribute="top" secondItem="Crd-uG-PV9" secondAttribute="bottom" constant="93" id="fxe-AH-s0M"/>
+                            <constraint firstItem="B4n-v9-e9n" firstAttribute="top" secondItem="Crd-uG-PV9" secondAttribute="bottom" constant="148" id="fxe-AH-s0M"/>
                             <constraint firstItem="1Nk-gT-YEh" firstAttribute="top" secondItem="7LY-E6-lfv" secondAttribute="bottom" constant="203" id="yJL-Nj-pxf"/>
                         </constraints>
                     </view>
@@ -164,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAi-BJ-PqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="881"/>
+            <point key="canvasLocation" x="-247.19999999999999" y="880.20989505247383"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="sUq-AL-HNu">
@@ -209,26 +221,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QQs-f9-7ne">
-                                <rect key="frame" x="67" y="177" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QQs-f9-7ne">
+                                <rect key="frame" x="67" y="146" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="1xv-1x-mHx"/>
+                                    <constraint firstAttribute="width" secondItem="QQs-f9-7ne" secondAttribute="height" multiplier="1:1" id="HxM-dK-gdL"/>
+                                </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-QT-ozS">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6F-QT-ozS">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="NF8-qB-hl1"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-48-xsQ">
-                                <rect key="frame" x="16" y="94" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yO-48-xsQ">
+                                <rect key="frame" x="166.5" y="63" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QQs-f9-7ne" firstAttribute="top" secondItem="3yO-48-xsQ" secondAttribute="bottom" constant="62" id="2QU-GB-If6"/>
+                            <constraint firstItem="QQs-f9-7ne" firstAttribute="centerX" secondItem="C6F-QT-ozS" secondAttribute="centerX" id="Ew3-Xe-sIY"/>
+                            <constraint firstItem="C6F-QT-ozS" firstAttribute="bottom" secondItem="61C-Sn-7zy" secondAttribute="bottom" id="R8i-yb-T9M"/>
+                            <constraint firstItem="Pj3-Qv-XZN" firstAttribute="top" secondItem="QQs-f9-7ne" secondAttribute="bottom" constant="232" id="U6P-d3-GFu"/>
+                            <constraint firstItem="C6F-QT-ozS" firstAttribute="leading" secondItem="fjR-Jc-Nub" secondAttribute="leading" id="ZWy-AZ-E3a"/>
+                            <constraint firstItem="QQs-f9-7ne" firstAttribute="centerX" secondItem="fjR-Jc-Nub" secondAttribute="centerX" id="k5i-G5-Whz"/>
+                            <constraint firstItem="QQs-f9-7ne" firstAttribute="centerX" secondItem="3yO-48-xsQ" secondAttribute="centerX" id="o8f-gc-NF3"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="resultsImageView" destination="QQs-f9-7ne" id="eWx-AM-rjc"/>
@@ -237,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eH-ws-rl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="136"/>
+            <point key="canvasLocation" x="828" y="135.38230884557723"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="GbD-8E-ls5">
@@ -279,7 +301,7 @@
         <scene sceneID="75A-nY-Ivd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4hU-5l-prf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Balancing Test" selectedImage="balancing-scale-variant (1)" id="RXc-cb-XyP"/>
+                    <tabBarItem key="tabBarItem" title="Balancing Test" image="balancing-scale-variant (1)" selectedImage="balancing-scale-variant (1)" id="RXc-cb-XyP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r9D-c4-S4M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -298,7 +320,7 @@
         <scene sceneID="Ujr-hU-3Fg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S8o-MI-3QR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Steady Hands Test" selectedImage="hold" id="Afy-vM-lo4"/>
+                    <tabBarItem key="tabBarItem" title="Steady Hands Test" image="hold" selectedImage="hold" id="Afy-vM-lo4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qtA-dA-cf0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

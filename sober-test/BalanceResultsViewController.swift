@@ -18,9 +18,12 @@ class BalanceResultsViewController: UIViewController {
         super.viewDidLoad()
         if result!{
             resultsLabelTextField.text = "sober!"
+            resultsImageView.image = UIImage(named: "smile.jpeg")
         }
         else{
             resultsLabelTextField.text = "drunk!"
+            resultsImageView.image = UIImage(named: "drunk.jpeg")
+
         }
 
         // Do any additional setup after loading the view.
