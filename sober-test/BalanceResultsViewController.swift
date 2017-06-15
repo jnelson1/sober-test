@@ -22,7 +22,7 @@ class BalanceResultsViewController: UIViewController {
         }
         else{
             resultsLabelTextField.text = "drunk!"
-            resultsImageView.image = UIImage(named: "drunk.jpeg")
+            resultsImageView.image = UIImage(named: "drunk-1.jpeg")
 
         }
 

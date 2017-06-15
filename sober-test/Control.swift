@@ -7,21 +7,21 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
-private var _sharedSingletonInstance: Control!
+//private var _sharedSingletonInstance: Control!
 
-class Control: RLMObject {
+class Control: Object {
     
         dynamic var controlAcc = 0.0
         dynamic var controlGyro = 0.0
-
+/*
     class var shared: Control {
         if _sharedSingletonInstance == nil {
             _sharedSingletonInstance = Control()
         }
         return _sharedSingletonInstance
     }
-
+*/
     
 }
