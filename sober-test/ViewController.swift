@@ -69,6 +69,9 @@ class ViewController: UIViewController {
         let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
         self.calibrateButton.backgroundColor=color
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        motion.stopDeviceMotionUpdates()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -110,23 +113,23 @@ class ViewController: UIViewController {
                         let magnitude = sqrt(pow(x,2)+pow(y,2)+pow(z,2))
                         self?.magnitudes.append(magnitude)
                         self?.magAvg = self?.average(magnitudes: (self?.magnitudes)!)
-                            /*var redColor = UIColor()
-                              var greenColor = UIColor()
-                             if (magAvg!-controlObject.controlAcc) > Double(0.01){
+                            var redColor = 0.0
+                              var greenColor = 0.0
+                             if ((self?.magAvg!)!-(self?.controlObject.controlAcc)!) > Double(0.01){
                                     redColor = 1.0
                                     greenColor = 0.0
                              }
                              else{
-                             if (magAvg!-controlObject.controlAcc)<0.0{
+                             if ((self?.magAvg!)!-(self?.controlObject.controlAcc)!)<0.0{
                                 redColor = 0.0
                              greenColor = 1.0
                              }
-                             redColor = 100.0*(magAvg!-controlObject.controlAcc)
-                             greenColor = 1.0-100.0*(magAvg!-controlObject.controlAcc)
+                             redColor = 100.0*((self?.magAvg!)!-(self?.controlObject.controlAcc)!)
+                             greenColor = 1.0-100.0*((self?.magAvg!)!-(self?.controlObject.controlAcc)!)
                              }
-                            self.soberScore.backgroundColor = UIColor((red: redColor, green: greenColor, blue: 0, alpha: 1)
-                            self.soberScore.text = "Sober Score = \(1000*(magAvg!-controlObject.controlAcc)) out of 10"
-                            */
+                            self?.soberScore.backgroundColor = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: 0, alpha: 1)
+                            self?.soberScore.text = "Sober Score = \(10-(1000*((self?.magAvg!)!-(self?.controlObject.controlAcc)!)))"
+                            
                         print ("x: \(x) y: \(y) z: \(z) average: \(self?.magAvg) calVal = \(self?.controlObject.controlAcc)")
                         
                         }
